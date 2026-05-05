@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 13 - Diseño Glassmorphism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Paleta Pastel Celeste con Transparencias */
+            --pastel-blue: #bae6fd;
+            --glass-bg: rgba(255, 255, 255, 0.45); /* Cajones más transparentes */
+            --glass-border: rgba(255, 255, 255, 0.3);
+        }
+
+        body {
+            background-color: #0f172a;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Contenedor con la imagen de fondo */
+        .phone-container {
+            width: 375px;
+            height: 667px;
+            background-image: url('foto.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 45px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 8px solid #ffffff;
+            padding: 15px;
+            gap: 15px;
+            position: relative;
+        }
+
+        /* Título superior Tarea 13 */
+        .main-assignment-header {
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            z-index: 2;
+            margin-top: 5px;
+        }
+
+        /* Estilo de los cajones transparentes */
+        .glass-block {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        /* SECCIÓN 1 */
+        .section-one {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* SECCIÓN 2 */
+        .section-two {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            scrollbar-width: none;
+        }
+        .section-two::-webkit-scrollbar { display: none; }
+
+        /* SECCIÓN 3 */
+        .section-three {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 5px;
+        }
+
+        /* Botones dentro de los cajones */
+        .btn-link {
+            width: 100%;
+            padding: 12px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.7);
+            color: #0369a1;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .btn-link:hover {
+            background: #ffffff;
+            transform: scale(1.02);
+        }
+
+        #surnameCanvas {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+        }
+
+        .status-bar {
+            height: 20px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 25px;
+            font-size: 10px;
+            color: white;
+            font-weight: 700;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span>9:41</span>
+            <div class="flex gap-1">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <div class="main-assignment-header">Tarea 13</div>
+
+        <!-- SECCIÓN UNO: CABECERA -->
+        <div class="section-one glass-block">
+            <div>
+                <h1 class="text-xl font-black text-sky-600 leading-tight">Cinnamoroll</h1>
+                <p class="text-[9px] text-sky-800 font-bold uppercase tracking-widest opacity-60">Bloque 01</p>
+            </div>
+            <button onclick="speakText()" class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-lg active:scale-90 transition-all">
+                <i class="fas fa-volume-up text-sm"></i>
+            </button>
+        </div>
+
+        <!-- SECCIÓN DOS: ENLACES -->
+        <div class="section-two glass-block" id="app-content">
+            <h2 class="text-[9px] font-black text-sky-800 uppercase tracking-widest mb-3 opacity-60">Sección 02: Recursos</h2>
+            
+            <a href="https://sophiaposadas4.wixsite.com/26000150tarea11/redes-sociales" target="_blank" class="btn-link">
+                <i class="fas fa-star text-sky-400"></i>
+                <span>Tarea 12 (Wix)</span>
+            </a>
+
+            <a href="https://youtu.be/TPI-Jf_oitA" target="_blank" class="btn-link">
+                <i class="fab fa-youtube text-red-500"></i>
+                <span>Tarea 11 (Video)</span>
+            </a>
+
+            <a href="https://www.galileo.edu/" target="_blank" class="btn-link">
+                <img src="https://www.galileo.edu/favicon.ico" alt="Galileo" class="h-4 mr-1">
+                <span class="text-sky-900">U. Galileo</span>
+            </a>
+        </div>
+
+        <!-- SECCIÓN TRES: CANVAS POSADAS -->
+        <div class="section-three glass-block">
+            <div class="flex flex-col items-center">
+                <canvas id="surnameCanvas" width="120" height="40"></canvas>
+                <span class="text-[8px] text-sky-900 font-black mt-1 uppercase opacity-50">Sección 03</span>
+            </div>
+            
+            <button onclick="exitApp()" class="flex flex-col items-center gap-1">
+                <div class="w-9 h-9 rounded-xl bg-red-500 text-white flex items-center justify-center shadow-md active:scale-90 transition-all">
+                    <i class="fas fa-power-off text-sm"></i>
+                </div>
+                <span class="text-[9px] font-black text-red-600">SALIR</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Web Speech API
+        function speakText() {
+            const text = "Bienvenida a la aplicación de la Tarea 13 de Posadas.";
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'es-ES';
+            utterance.pitch = 1.2;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Dibujo del Apellido en Canvas
+        function drawSurname() {
+            const canvas = document.getElementById('surnameCanvas');
+            if (canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Configuración de texto
+                ctx.font = 'bold 22px "Inter", sans-serif';
+                ctx.fillStyle = '#0369a1';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                // Dibujar apellido Posadas
+                ctx.fillText('Posadas', canvas.width / 2, canvas.height / 2);
+                
+                // Línea decorativa inferior
+                ctx.strokeStyle = '#60a5fa';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(30, 32);
+                ctx.lineTo(90, 32);
+                ctx.stroke();
+            }
+        }
+
+        // Función Salir
+        function exitApp() {
+            const main = document.getElementById('app-content');
+            main.innerHTML = `
+                <div class="flex flex-col items-center justify-center h-full text-center">
+                    <div class="w-14 h-14 bg-white/80 rounded-2xl flex items-center justify-center mb-3 shadow-lg">
+                        <i class="fas fa-check text-2xl text-sky-400"></i>
+                    </div>
+                    <h2 class="text-md font-black text-sky-900">¡Hasta luego!</h2>
+                    <p class="text-[10px] text-sky-800 font-bold opacity-70">Posadas - Tarea 13</p>
+                    <button onclick="location.reload()" class="mt-5 px-6 py-2 bg-sky-500 text-white rounded-full text-[10px] font-black">REINICIAR</button>
+                </div>
+            `;
+        }
+
+        // Iniciar al cargar
+        window.onload = drawSurname;
+    </script>
+</body>
+</html>
